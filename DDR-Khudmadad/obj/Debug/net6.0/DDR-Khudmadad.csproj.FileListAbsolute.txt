@@ -1,0 +1,64 @@
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\bin\Debug\net6.0\appsettings.Development.json
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\bin\Debug\net6.0\appsettings.json
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\bin\Debug\net6.0\DDR-Khudmadad.exe
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\bin\Debug\net6.0\DDR-Khudmadad.deps.json
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\bin\Debug\net6.0\DDR-Khudmadad.runtimeconfig.json
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\bin\Debug\net6.0\DDR-Khudmadad.dll
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\bin\Debug\net6.0\DDR-Khudmadad.pdb
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\bin\Debug\net6.0\Microsoft.OpenApi.dll
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\DDR-Khudmadad.csproj.AssemblyReference.cache
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\DDR-Khudmadad.GeneratedMSBuildEditorConfig.editorconfig
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\DDR-Khudmadad.AssemblyInfoInputs.cache
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\DDR-Khudmadad.AssemblyInfo.cs
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\DDR-Khudmadad.csproj.CoreCompileInputs.cache
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\DDR-Khudmadad.MvcApplicationPartsAssemblyInfo.cs
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\DDR-Khudmadad.MvcApplicationPartsAssemblyInfo.cache
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\staticwebassets\msbuild.DDR-Khudmadad.Microsoft.AspNetCore.StaticWebAssets.props
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\staticwebassets\msbuild.build.DDR-Khudmadad.props
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.DDR-Khudmadad.props
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.DDR-Khudmadad.props
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\staticwebassets.pack.json
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\staticwebassets.build.json
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\staticwebassets.development.json
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\scopedcss\bundle\DDR-Khudmadad.styles.css
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\DDR-Khudmadad.csproj.CopyComplete
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\DDR-Khudmadad.dll
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\refint\DDR-Khudmadad.dll
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\DDR-Khudmadad.pdb
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\DDR-Khudmadad.genruntimeconfig.cache
+F:\DDR\New Project\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\ref\DDR-Khudmadad.dll
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\bin\Debug\net6.0\appsettings.Development.json
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\bin\Debug\net6.0\appsettings.json
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\bin\Debug\net6.0\DDR-Khudmadad.exe
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\bin\Debug\net6.0\DDR-Khudmadad.deps.json
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\bin\Debug\net6.0\DDR-Khudmadad.runtimeconfig.json
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\bin\Debug\net6.0\DDR-Khudmadad.dll
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\bin\Debug\net6.0\DDR-Khudmadad.pdb
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\bin\Debug\net6.0\Microsoft.OpenApi.dll
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\DDR-Khudmadad.csproj.AssemblyReference.cache
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\DDR-Khudmadad.GeneratedMSBuildEditorConfig.editorconfig
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\DDR-Khudmadad.AssemblyInfoInputs.cache
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\DDR-Khudmadad.AssemblyInfo.cs
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\DDR-Khudmadad.csproj.CoreCompileInputs.cache
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\DDR-Khudmadad.MvcApplicationPartsAssemblyInfo.cs
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\DDR-Khudmadad.MvcApplicationPartsAssemblyInfo.cache
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\staticwebassets\msbuild.DDR-Khudmadad.Microsoft.AspNetCore.StaticWebAssets.props
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\staticwebassets\msbuild.build.DDR-Khudmadad.props
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.DDR-Khudmadad.props
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.DDR-Khudmadad.props
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\staticwebassets.pack.json
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\staticwebassets.build.json
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\staticwebassets.development.json
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\scopedcss\bundle\DDR-Khudmadad.styles.css
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\DDR-Khudmadad.csproj.CopyComplete
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\DDR-Khudmadad.dll
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\refint\DDR-Khudmadad.dll
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\DDR-Khudmadad.pdb
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\DDR-Khudmadad.genruntimeconfig.cache
+F:\DDR\DDR-Khudmadad\DDR-Khudmadad\DDR-Khudmadad\obj\Debug\net6.0\ref\DDR-Khudmadad.dll
