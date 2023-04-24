@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 
-namespace DDR_Khudmadad.Efcore
+namespace DDR_Khudmadad.BusinessObjects
 {
     [Table("Gig")]
     public class Gig

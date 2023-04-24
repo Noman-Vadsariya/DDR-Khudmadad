@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace DDR_Khudmadad.Efcore
+namespace DDR_Khudmadad.BusinessObjects
 {
     public class Ef_DataContext : DbContext
     {
