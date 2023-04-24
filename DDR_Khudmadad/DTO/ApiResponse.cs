@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace Khudmadad_Backend.Models
+namespace DDR_Khudmadad.DTO
 {
     public class ApiResponse
     {
