@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Globalization;
 
-namespace DDR_Khudmadad.Efcore
+namespace DDR_Khudmadad.BusinessObjects
 {
     [Table("Roles")]
     public class Roles
