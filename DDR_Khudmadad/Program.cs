@@ -4,9 +4,13 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+//builder.Services.AddDbContext<Ef_DataContext>(
+//    o => o.UseSqlServer(builder.Configuration.GetConnectionString("AzureSqlDb"))
+//);
+
 builder.Services.AddDbContext<Ef_DataContext>(
-    o => o.UseSqlServer(builder.Configuration.GetConnectionString("AzureSqlDb"))
-);
+    options => options.UseNpgsql(builder.Configuration.GetConnectionString("DDR_Khudmadad"))
+    );
 
 //Automatically perform migration
 //builder.Services.BuildServiceProvider().GetService<Ef_DataContext>().Database.Migrate();
