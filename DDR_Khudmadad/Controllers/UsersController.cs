@@ -10,7 +10,7 @@ namespace DDR_Khudmadad.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly UserDAO _db;
+        private readonly IDAO _db;
 
         public UsersController(Ef_DataContext _context)
         {
@@ -46,7 +46,7 @@ namespace DDR_Khudmadad.Controllers
             ResponseType type = ResponseType.Success;
             try
             {
-                UsersModel? data = _db.GetById(id);
+                object? data = _db.GetById(id);
                 if (data == null)
                 {
                     type = ResponseType.NotFound;
@@ -61,25 +61,24 @@ namespace DDR_Khudmadad.Controllers
         }
 
         //GET: api/Users/username/{userName}
-        //[HttpGet("username/{userName}")]
-        //public ActionResult GetUserByUsername(string userName)
-        //{
-        //    ResponseType type = ResponseType.Success;
-        //    try
-        //    {
-        //        UsersModel? data = _db.GetUserByUsername(userName);
-        //        if (data == null)
-        //        {
-        //            type = ResponseType.NotFound;
-        //        }
-        //        return Ok(ResponseHandler.GetAppResponse(type, data));
-        //    }
-        //    catch(Exception ex)
-        //    {
-        //        return BadRequest(ResponseHandler.GetExceptionResponse(ex));
-        //    }
-
-        //}
+        [HttpGet("username/{userName}")]
+        public ActionResult GetUserByUsername(string userName)
+        {
+            ResponseType type = ResponseType.Success;
+            try
+            {
+                object? data = _db.GetByUsername(userName);
+                if (data == null)
+                {
+                    type = ResponseType.NotFound;
+                }
+                return Ok(ResponseHandler.GetAppResponse(type, data));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ResponseHandler.GetExceptionResponse(ex));
+            }
+        }
 
         // GET: api/Users/create
         [HttpPost("create")]

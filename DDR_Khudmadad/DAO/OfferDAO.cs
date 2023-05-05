@@ -35,9 +35,25 @@ namespace DDR_Khudmadad.DAO
             }
         }
 
-        override public List<OfferModel>? GetById(int gigId)
+        override public OfferModel? GetById(int id)
         {
-            List<OfferModel> response = new List<OfferModel>();
+            OfferModel o = new OfferModel();
+            var offer = _context.offer.Where(o => o.gigId.Equals(id)).FirstOrDefault();
+            if (offer == null)
+                return null;
+            else
+            {
+                o.gigId = offer.gigId;
+                o.freelancerId = offer.freelancerId;
+                o.pay = offer.pay;       
+                o.status = offer.status;
+                return o;
+            }
+        }
+
+        override public List<object>? GetOfferByGigId(int gigId)
+        {
+            List<object> response = new List<object>();
             var offerList = _context.offer.Where(o => o.gigId.Equals(gigId)).ToList();
             
             if (offerList == null)
@@ -58,9 +74,9 @@ namespace DDR_Khudmadad.DAO
             }
         }
         
-        public List<OfferModel>? GetOfferByFreelancerId(int freelancerId)
+        override public List<object>? GetOfferByFreelancerId(int freelancerId)
         {
-            List<OfferModel> response = new List<OfferModel>();
+            List<object> response = new List<object>();
             var offerList = _context.offer.Where(o => o.freelancerId.Equals(freelancerId)).ToList();
             if (offerList == null)
                 return null;
@@ -80,9 +96,9 @@ namespace DDR_Khudmadad.DAO
             }
         }
 
-        public List<GigOfferModel>? GetOffersByClientId(int clientId)
+        override public List<object>? GetOffersByClientId(int clientId)
         {
-            List<GigOfferModel> response = new List<GigOfferModel>();
+            List<object> response = new List<object>();
             var offerList = (from offer in _context.offer
                              join gig in _context.gig on offer.gigId equals gig.gigId
                              join user in _context.users on offer.freelancerId equals user.userId
@@ -173,7 +189,7 @@ namespace DDR_Khudmadad.DAO
             }
         }
 
-        public bool DeleteOffersWithGigId(int gigId)
+        override public bool DeleteOffersWithGigId(int gigId)
         {
             var offerList = _context.offer.Where(o => o.gigId.Equals(gigId) && o.status==false).ToList();
             if (offerList == null) 

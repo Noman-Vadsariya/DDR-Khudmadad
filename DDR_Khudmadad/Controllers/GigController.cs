@@ -11,7 +11,7 @@ namespace DDR_Khudmadad.Controllers
     [ApiController]
     public class GigController : ControllerBase
     {
-        private readonly GigDAO _db;
+        private readonly IDAO _db;
 
         public GigController(Ef_DataContext _context)
         {
@@ -38,50 +38,6 @@ namespace DDR_Khudmadad.Controllers
                 return BadRequest(ResponseHandler.GetExceptionResponse(ex));
             }
 
-        } 
-        
-        // GET: api/Gig/creatorId/{creatorId}
-        [HttpGet("creatorId/{creatorId}")]
-        public IActionResult GetGigByCreatorId(int creatorId)
-        {
-            ResponseType type = ResponseType.Success;
-            try
-            {
-                IEnumerable<GigModel>? data = _db.GetGigsByCreatorId(creatorId);
-
-                if (data == null)
-                {
-                    type = ResponseType.NotFound;
-                }
-                return Ok(ResponseHandler.GetAppResponse(type, data));
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ResponseHandler.GetExceptionResponse(ex));
-            }
-
-        }
-        
-        // GET: api/Gig/unaccepted
-        [HttpGet("unaccepted")]
-        public IActionResult GetUnacceptedGigs()
-        {
-            ResponseType type = ResponseType.Success;
-            try
-            {
-                IEnumerable<GigModel>? data = _db.GetUnacceptedGigs();
-
-                if (data == null)
-                {
-                    type = ResponseType.NotFound;
-                }
-                return Ok(ResponseHandler.GetAppResponse(type, data));
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ResponseHandler.GetExceptionResponse(ex));
-            }
-
         }
 
         //GET: api/Gigs/5
@@ -91,7 +47,51 @@ namespace DDR_Khudmadad.Controllers
             ResponseType type = ResponseType.Success;
             try
             {
-                GigModel? data = _db.GetById(id);
+                object? data = _db.GetById(id);
+                if (data == null)
+                {
+                    type = ResponseType.NotFound;
+                }
+                return Ok(ResponseHandler.GetAppResponse(type, data));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ResponseHandler.GetExceptionResponse(ex));
+            }
+
+        }
+
+        //GET: api/Gig/creatorId/{creatorId}
+        [HttpGet("creatorId/{creatorId}")]
+        public IActionResult GetGigByCreatorId(int creatorId)
+        {
+            ResponseType type = ResponseType.Success;
+            try
+            {
+                IEnumerable<object>? data = _db.GetGigsByCreatorId(creatorId);
+
+                if (data == null)
+                {
+                    type = ResponseType.NotFound;
+                }
+                return Ok(ResponseHandler.GetAppResponse(type, data));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ResponseHandler.GetExceptionResponse(ex));
+            }
+
+        }
+
+        //GET: api/Gig/unaccepted
+        [HttpGet("unaccepted")]
+        public IActionResult GetUnacceptedGigs()
+        {
+            ResponseType type = ResponseType.Success;
+            try
+            {
+                IEnumerable<object>? data = _db.GetUnacceptedGigs();
+
                 if (data == null)
                 {
                     type = ResponseType.NotFound;

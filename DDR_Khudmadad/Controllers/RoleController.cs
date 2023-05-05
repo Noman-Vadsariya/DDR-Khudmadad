@@ -10,7 +10,7 @@ namespace DDR_Khudmadad.Controllers
     [ApiController]
     public class RoleController : ControllerBase
     {
-        private readonly RoleDAO _db;
+        private readonly IDAO _db;
 
         public RoleController(Ef_DataContext _context)
         {

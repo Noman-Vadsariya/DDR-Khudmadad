@@ -56,9 +56,9 @@ namespace DDR_Khudmadad.DAO
             }
         }
 
-        public List<GigModel>? GetUnacceptedGigs()
+        override public List<object>? GetUnacceptedGigs()
         {
-            List<GigModel> response = new List<GigModel>();
+            List<object> response = new List<object>();
             var gigList = (from gig in _context.gig
                            join offer in _context.offer on gig.gigId equals offer.gigId into ps_jointable 
                            from p in ps_jointable.DefaultIfEmpty()
@@ -91,9 +91,9 @@ namespace DDR_Khudmadad.DAO
             }
         }
 
-        public List<GigModel>? GetGigsByCreatorId(int creatorId)
+        override public List<object>? GetGigsByCreatorId(int creatorId)
         {
-            List<GigModel> response = new List<GigModel>();
+            List<object> response = new List<object>();
             var gigList = _context.gig.Where(o => o.creatorId.Equals(creatorId)).ToList();
 
             if (gigList == null)
