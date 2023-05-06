@@ -10,11 +10,11 @@ namespace DDR_Khudmadad.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly IDAO _db;
+        private readonly UserDAOImp _db;
 
         public UsersController(Ef_DataContext _context)
         {
-            _db = new UserDAO(_context);
+            _db = new UserDAOImp(_context);
         }
 
         // GET: api/Users

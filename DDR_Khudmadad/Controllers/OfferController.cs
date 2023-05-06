@@ -12,11 +12,11 @@ namespace DDR_Khudmadad.Controllers
     [ApiController]
     public class OfferController : ControllerBase
     {
-        private readonly IDAO _db;
+        private readonly OfferDAOImp _db;
 
         public OfferController(Ef_DataContext _context)
         {
-            _db = new OfferDAO(_context);
+            _db = new OfferDAOImp(_context);
         }
 
         // GET: api/Offer
@@ -42,25 +42,25 @@ namespace DDR_Khudmadad.Controllers
         }
 
         //GET: api/Offer/5
-        //[HttpGet("{id}")]
-        //public ActionResult Details(int id)
-        //{
-        //    ResponseType type = ResponseType.Success;
-        //    try
-        //    {
-        //        object? data = _db.GetById(id);
-        //        if (data == null)
-        //        {
-        //            type = ResponseType.NotFound;
-        //        }
-        //        return Ok(ResponseHandler.GetAppResponse(type, data));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ResponseHandler.GetExceptionResponse(ex));
-        //    }
+        [HttpGet("{id}")]
+        public ActionResult Details(int id)
+        {
+            ResponseType type = ResponseType.Success;
+            try
+            {
+                object? data = _db.GetById(id);
+                if (data == null)
+                {
+                    type = ResponseType.NotFound;
+                }
+                return Ok(ResponseHandler.GetAppResponse(type, data));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ResponseHandler.GetExceptionResponse(ex));
+            }
 
-        //}
+        }
 
         //GET: api/Offer/gigId/5
         [HttpGet("gigId/{gigId}")]

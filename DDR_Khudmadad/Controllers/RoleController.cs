@@ -10,11 +10,11 @@ namespace DDR_Khudmadad.Controllers
     [ApiController]
     public class RoleController : ControllerBase
     {
-        private readonly IDAO _db;
+        private readonly GenericDAOImp<Roles> _db;
 
         public RoleController(Ef_DataContext _context)
         {
-            _db = new RoleDAO(_context);
+            _db = new GenericDAOImp<Roles>(_context);
         }
 
         // GET: api/roles

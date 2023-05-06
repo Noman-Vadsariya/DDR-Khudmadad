@@ -11,11 +11,11 @@ namespace DDR_Khudmadad.Controllers
     [ApiController]
     public class GigController : ControllerBase
     {
-        private readonly IDAO _db;
+        private readonly GigDAOImp _db;
 
         public GigController(Ef_DataContext _context)
         {
-            _db = new GigDAO(_context);
+            _db = new GigDAOImp(_context);
         }
 
         // GET: api/Gigs
