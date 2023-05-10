@@ -10,7 +10,7 @@ namespace DDR_Khudmadad.DAO
 
         }
 
-        public List<object>? GetOfferByGigId(int gigId)
+        public List<object>? GetOffersByGigId(int gigId)
         {
             List<object> response = new List<object>();
             var offerList = _context.offer.Where(o => o.gigId.Equals(gigId)).ToList();
@@ -21,7 +21,7 @@ namespace DDR_Khudmadad.DAO
             {
                 foreach (var row in offerList)
                 {
-                    response.Add(new OfferModel()
+                    response.Add(new Offers()
                     {
                         gigId = row.gigId,
                         freelancerId = row.freelancerId,
@@ -33,7 +33,7 @@ namespace DDR_Khudmadad.DAO
             }
         }
 
-        public List<object>? GetOfferByFreelancerId(int freelancerId)
+        public List<object>? GetOffersByFreelancerId(int freelancerId)
         {
             List<object> response = new List<object>();
             var offerList = _context.offer.Where(o => o.freelancerId.Equals(freelancerId)).ToList();
@@ -43,7 +43,7 @@ namespace DDR_Khudmadad.DAO
             {
                 foreach (var row in offerList)
                 {
-                    response.Add(new OfferModel()
+                    response.Add(new Offers()
                     {
                         gigId = row.gigId,
                         freelancerId = row.freelancerId,

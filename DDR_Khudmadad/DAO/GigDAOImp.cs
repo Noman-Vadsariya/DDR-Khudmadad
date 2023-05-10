@@ -31,7 +31,7 @@ namespace DDR_Khudmadad.DAO
                 return null;
             else
             {
-                gigList.ForEach(row => response.Add(new GigModel()
+                gigList.ForEach(row => response.Add(new Gig()
                 {
                     creatorId = row.creatorId,
                     gigId = row.gigId,
@@ -55,7 +55,7 @@ namespace DDR_Khudmadad.DAO
 
             else
             {
-                gigList.ForEach(row => response.Add(new GigModel()
+                gigList.ForEach(row => response.Add(new Gig()
                 {
                     creatorId = row.creatorId,
                     gigId = row.gigId,

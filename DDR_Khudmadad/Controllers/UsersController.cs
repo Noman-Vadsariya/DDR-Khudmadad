@@ -17,6 +17,22 @@ namespace DDR_Khudmadad.Controllers
             _db = new UserDAOImp(_context);
         }
 
+        public Users TransformObject(UsersModel user)
+        {
+            Users u = new Users();
+            u.userId = user.userId;
+            u.roleId = user.roleId;
+            u.userName = user.userName;
+            u.email = user.email;
+            u.password = user.password;
+            u.firstName = user.firstName;
+            u.lastName = user.lastName;
+            u.dob = user.dob;
+            u.description = user.description;
+            u.phoneNumber = user.phoneNumber;
+            return u;
+        }
+
         // GET: api/Users
         [HttpGet]
         public IActionResult Get()
@@ -86,7 +102,8 @@ namespace DDR_Khudmadad.Controllers
         {
             try
             {
-                _db.Add(user);
+                var u = this.TransformObject(user);
+                _db.Add(u);
                 return Ok(ResponseHandler.GetAppResponse(ResponseType.Success, user));
             }
             catch(Exception ex)
@@ -100,7 +117,8 @@ namespace DDR_Khudmadad.Controllers
         {
             try
             {
-                var _u = _db.Update(user);
+                var u = this.TransformObject(user);
+                var _u = _db.Update(u);
                 if (_u)
                     return ResponseHandler.GetAppResponse(ResponseType.Success, _u);
                 else
@@ -117,7 +135,9 @@ namespace DDR_Khudmadad.Controllers
         {
             try
             {
-                var _u = _db.Delete(user);
+                var u = this.TransformObject(user);
+                var _u = _db.Delete(u);
+
                 if (_u)
                     return ResponseHandler.GetAppResponse(ResponseType.Success, _u);
                 else

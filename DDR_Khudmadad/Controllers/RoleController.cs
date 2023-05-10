@@ -3,6 +3,7 @@ using DDR_Khudmadad.DTO;
 using DDR_Khudmadad.DAO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
 
 namespace DDR_Khudmadad.Controllers
 {
@@ -15,6 +16,14 @@ namespace DDR_Khudmadad.Controllers
         public RoleController(Ef_DataContext _context)
         {
             _db = new GenericDAOImp<Roles>(_context);
+        }
+
+        public Roles TransformObject(RolesModel role)
+        {
+            Roles r = new Roles();
+            r.roleId = role.roleId;
+            r.role = role.role;
+            return r;
         }
 
         // GET: api/roles
@@ -41,10 +50,11 @@ namespace DDR_Khudmadad.Controllers
 
         // GET: api/roles/Create
         [HttpPost("Create")]
-        public ActionResult Create(RolesModel role)
+        public ActionResult Create(RolesModel r)
         {
             try
             {
+                var role = this.TransformObject(r);
                 _db.Add(role);
                 return Ok(ResponseHandler.GetAppResponse(ResponseType.Success, role));
             }

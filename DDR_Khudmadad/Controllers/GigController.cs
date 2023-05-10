@@ -2,6 +2,7 @@
 using DDR_Khudmadad.DTO;
 using DDR_Khudmadad.DAO;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json.Nodes;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,6 +17,18 @@ namespace DDR_Khudmadad.Controllers
         public GigController(Ef_DataContext _context)
         {
             _db = new GigDAOImp(_context);
+        }
+
+        public Gig TransformObject(GigModel gig)
+        {
+            Gig g = new Gig();
+            g.gigId = gig.gigId;
+            g.gigName = gig.gigName;
+            g.creatorId = gig.creatorId;
+            g.deadline = gig.deadline;
+            g.description = gig.description;
+            g.pay = gig.pay;
+            return g;
         }
 
         // GET: api/Gigs
@@ -107,10 +120,11 @@ namespace DDR_Khudmadad.Controllers
 
         // GET: api/Gigs/Create
         [HttpPost("Create")]
-        public ActionResult Create(GigModel gig)
+        public ActionResult Create(GigModel g)
         {
             try
             {
+                var gig = this.TransformObject(g);  
                 _db.Add(gig);
                 return Ok(ResponseHandler.GetAppResponse(ResponseType.Success, gig));
             }
@@ -121,10 +135,11 @@ namespace DDR_Khudmadad.Controllers
         }
 
         [HttpPut("update")]
-        public ApiResponse UpdateGig(GigModel gig)
+        public ApiResponse UpdateGig(GigModel g)
         {
             try
             {
+                var gig = this.TransformObject(g);
                 var _g = _db.Update(gig);
                 if (_g)
                     return ResponseHandler.GetAppResponse(ResponseType.Success, _g);
@@ -138,10 +153,11 @@ namespace DDR_Khudmadad.Controllers
         }
 
         [HttpDelete("delete")]
-        public ApiResponse DeleteGig(GigModel gig)
+        public ApiResponse DeleteGig(GigModel g)
         {
             try
             {
+                var gig = this.TransformObject(g);
                 var _g = _db.Delete(gig);
                 if (_g)
                     return ResponseHandler.GetAppResponse(ResponseType.Success, _g);

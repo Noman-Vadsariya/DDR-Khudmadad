@@ -19,6 +19,16 @@ namespace DDR_Khudmadad.Controllers
             _db = new OfferDAOImp(_context);
         }
 
+        public Offers TransformObject(OfferModel offer)
+        {
+            Offers o = new Offers();
+            o.freelancerId = offer.freelancerId;
+            o.gigId = offer.gigId;
+            o.pay = offer.pay;
+            o.status = offer.status;
+            return o;
+        }
+
         // GET: api/Offer
         [HttpGet]
         public ApiResponse Get()
@@ -69,7 +79,7 @@ namespace DDR_Khudmadad.Controllers
             ResponseType type = ResponseType.Success;
             try
             {
-                IEnumerable<object>? data = _db.GetOfferByGigId(gigId);
+                IEnumerable<object>? data = _db.GetOffersByGigId(gigId);
 
                 if (data == null)
                 {
@@ -91,7 +101,7 @@ namespace DDR_Khudmadad.Controllers
             Console.WriteLine("\n\n" + freelancerId + "\nHello");
             try
             {
-                IEnumerable<object>? data = _db.GetOfferByFreelancerId(freelancerId);
+                IEnumerable<object>? data = _db.GetOffersByFreelancerId(freelancerId);
 
                 if (data == null)
                 {
@@ -129,10 +139,11 @@ namespace DDR_Khudmadad.Controllers
 
         // GET: api/Offer/Create
         [HttpPost("Create")]
-        public ApiResponse Create(OfferModel offer)
+        public ApiResponse Create(OfferModel o)
         {
             try
             {
+                var offer = this.TransformObject(o);
                 _db.Add(offer);
                 return ResponseHandler.GetAppResponse(ResponseType.Success, offer);
             }
@@ -143,10 +154,11 @@ namespace DDR_Khudmadad.Controllers
         }
 
         [HttpPut("UpdateStatus")]
-        public ApiResponse UpdateOfferStatus(OfferModel offer)
+        public ApiResponse UpdateOfferStatus(OfferModel o)
         {
             try
             {
+                var offer = this.TransformObject(o);
                 var _o = _db.Update(offer);
                 if(_o)
                     return ResponseHandler.GetAppResponse(ResponseType.Success, _o);
@@ -160,10 +172,11 @@ namespace DDR_Khudmadad.Controllers
         }
         //Delete
         [HttpDelete("delete")]
-        public ApiResponse DeleteOffer(OfferModel offer)
+        public ApiResponse DeleteOffer(OfferModel o)
         {
             try
             {
+                var offer = this.TransformObject(o);
                 var _o = _db.Delete(offer);
                 if(_o)
                     return ResponseHandler.GetAppResponse(ResponseType.Success, _o);

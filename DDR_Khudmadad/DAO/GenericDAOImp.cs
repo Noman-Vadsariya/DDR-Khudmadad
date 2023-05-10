@@ -23,7 +23,6 @@ namespace DDR_Khudmadad.DAO
 
         override public T? GetById(int id)
         {
-            UsersModel response = new UsersModel();
             var user = _context.Set<T>().Find(id);
             if (user == null)
                 return null;
@@ -39,28 +38,16 @@ namespace DDR_Khudmadad.DAO
 
         override public bool Update(object obj)
         {
-            var _u = _context.Set<T>().Find(obj);
-            if (_u == null)
-                return false;
-            else
-            {
-                _context.Set<T>().Update((T)obj);
-                _context.SaveChanges();
-                return true;
-            }
+            _context.Set<T>().Update((T)obj);
+            _context.SaveChanges();
+            return true;
         }
 
         override public bool Delete(object obj)
         {
-            var _u = _context.Set<T>().Find(obj);
-            if (_u == null)
-                return false;
-            else
-            {
-                _context.Set<T>().Remove((T)obj);
-                _context.SaveChanges();
-                return true;
-            }
+            _context.Set<T>().Remove((T)obj);
+            _context.SaveChanges();
+            return true;
         }
     }
 }
