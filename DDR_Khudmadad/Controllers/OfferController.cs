@@ -12,11 +12,21 @@ namespace DDR_Khudmadad.Controllers
     [ApiController]
     public class OfferController : ControllerBase
     {
-        private readonly OfferDAO _db;
+        private readonly OfferDAOImp _db;
 
         public OfferController(Ef_DataContext _context)
         {
-            _db = new OfferDAO(_context);
+            _db = new OfferDAOImp(_context);
+        }
+
+        public Offers TransformObject(OfferModel offer)
+        {
+            Offers o = new Offers();
+            o.freelancerId = offer.freelancerId;
+            o.gigId = offer.gigId;
+            o.pay = offer.pay;
+            o.status = offer.status;
+            return o;
         }
 
         // GET: api/Offer
@@ -41,6 +51,27 @@ namespace DDR_Khudmadad.Controllers
 
         }
 
+        //GET: api/Offer/5
+        [HttpGet("{id}")]
+        public ActionResult Details(int id)
+        {
+            ResponseType type = ResponseType.Success;
+            try
+            {
+                object? data = _db.GetById(id);
+                if (data == null)
+                {
+                    type = ResponseType.NotFound;
+                }
+                return Ok(ResponseHandler.GetAppResponse(type, data));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ResponseHandler.GetExceptionResponse(ex));
+            }
+
+        }
+
         //GET: api/Offer/gigId/5
         [HttpGet("gigId/{gigId}")]
         public ApiResponse GetOffersByOfferId(int gigId)
@@ -48,7 +79,7 @@ namespace DDR_Khudmadad.Controllers
             ResponseType type = ResponseType.Success;
             try
             {
-                IEnumerable<OfferModel>? data = _db.GetById(gigId);
+                IEnumerable<object>? data = _db.GetOffersByGigId(gigId);
 
                 if (data == null)
                 {
@@ -70,7 +101,7 @@ namespace DDR_Khudmadad.Controllers
             Console.WriteLine("\n\n" + freelancerId + "\nHello");
             try
             {
-                IEnumerable<OfferModel>? data = _db.GetOfferByFreelancerId(freelancerId);
+                IEnumerable<object>? data = _db.GetOffersByFreelancerId(freelancerId);
 
                 if (data == null)
                 {
@@ -83,7 +114,7 @@ namespace DDR_Khudmadad.Controllers
                 return ResponseHandler.GetExceptionResponse(ex);
             }
         }
-        
+
         //GET: api/Offer/clientId/5
         [HttpGet("clientId/{clientId}")]
         public ApiResponse GetOffersByClientId(int clientId)
@@ -92,7 +123,7 @@ namespace DDR_Khudmadad.Controllers
             Console.WriteLine("\n\n" + clientId + "\nHello");
             try
             {
-                IEnumerable<GigOfferModel>? data = _db.GetOffersByClientId(clientId);
+                IEnumerable<object>? data = _db.GetOffersByClientId(clientId);
 
                 if (data == null)
                 {
@@ -108,10 +139,11 @@ namespace DDR_Khudmadad.Controllers
 
         // GET: api/Offer/Create
         [HttpPost("Create")]
-        public ApiResponse Create(OfferModel offer)
+        public ApiResponse Create(OfferModel o)
         {
             try
             {
+                var offer = this.TransformObject(o);
                 _db.Add(offer);
                 return ResponseHandler.GetAppResponse(ResponseType.Success, offer);
             }
@@ -122,10 +154,11 @@ namespace DDR_Khudmadad.Controllers
         }
 
         [HttpPut("UpdateStatus")]
-        public ApiResponse UpdateOfferStatus(OfferModel offer)
+        public ApiResponse UpdateOfferStatus(OfferModel o)
         {
             try
             {
+                var offer = this.TransformObject(o);
                 var _o = _db.Update(offer);
                 if(_o)
                     return ResponseHandler.GetAppResponse(ResponseType.Success, _o);
@@ -139,10 +172,11 @@ namespace DDR_Khudmadad.Controllers
         }
         //Delete
         [HttpDelete("delete")]
-        public ApiResponse DeleteOffer(OfferModel offer)
+        public ApiResponse DeleteOffer(OfferModel o)
         {
             try
             {
+                var offer = this.TransformObject(o);
                 var _o = _db.Delete(offer);
                 if(_o)
                     return ResponseHandler.GetAppResponse(ResponseType.Success, _o);
@@ -154,7 +188,7 @@ namespace DDR_Khudmadad.Controllers
                 return ResponseHandler.GetExceptionResponse(ex);
             }
         }
-        
+
         //Delete all offers with given gigId accept the one accepted by client
         [HttpDelete("delete/{gigId}")]
         public ApiResponse DeleteOfferGivenGigId(int gigId)
@@ -162,7 +196,7 @@ namespace DDR_Khudmadad.Controllers
             try
             {
                 var _o = _db.DeleteOffersWithGigId(gigId);
-                if(_o)
+                if (_o)
                     return ResponseHandler.GetAppResponse(ResponseType.Success, _o);
                 else
                     return ResponseHandler.GetAppResponse(ResponseType.Failure, _o);

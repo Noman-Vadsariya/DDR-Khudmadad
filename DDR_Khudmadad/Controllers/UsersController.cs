@@ -10,11 +10,27 @@ namespace DDR_Khudmadad.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly UserDAO _db;
+        private readonly UserDAOImp _db;
 
         public UsersController(Ef_DataContext _context)
         {
-            _db = new UserDAO(_context);
+            _db = new UserDAOImp(_context);
+        }
+
+        public Users TransformObject(UsersModel user)
+        {
+            Users u = new Users();
+            u.userId = user.userId;
+            u.roleId = user.roleId;
+            u.userName = user.userName;
+            u.email = user.email;
+            u.password = user.password;
+            u.firstName = user.firstName;
+            u.lastName = user.lastName;
+            u.dob = user.dob;
+            u.description = user.description;
+            u.phoneNumber = user.phoneNumber;
+            return u;
         }
 
         // GET: api/Users
@@ -46,7 +62,7 @@ namespace DDR_Khudmadad.Controllers
             ResponseType type = ResponseType.Success;
             try
             {
-                UsersModel? data = _db.GetById(id);
+                object? data = _db.GetById(id);
                 if (data == null)
                 {
                     type = ResponseType.NotFound;
@@ -61,25 +77,24 @@ namespace DDR_Khudmadad.Controllers
         }
 
         //GET: api/Users/username/{userName}
-        //[HttpGet("username/{userName}")]
-        //public ActionResult GetUserByUsername(string userName)
-        //{
-        //    ResponseType type = ResponseType.Success;
-        //    try
-        //    {
-        //        UsersModel? data = _db.GetUserByUsername(userName);
-        //        if (data == null)
-        //        {
-        //            type = ResponseType.NotFound;
-        //        }
-        //        return Ok(ResponseHandler.GetAppResponse(type, data));
-        //    }
-        //    catch(Exception ex)
-        //    {
-        //        return BadRequest(ResponseHandler.GetExceptionResponse(ex));
-        //    }
-
-        //}
+        [HttpGet("username/{userName}")]
+        public ActionResult GetUserByUsername(string userName)
+        {
+            ResponseType type = ResponseType.Success;
+            try
+            {
+                object? data = _db.GetByUsername(userName);
+                if (data == null)
+                {
+                    type = ResponseType.NotFound;
+                }
+                return Ok(ResponseHandler.GetAppResponse(type, data));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ResponseHandler.GetExceptionResponse(ex));
+            }
+        }
 
         // GET: api/Users/create
         [HttpPost("create")]
@@ -87,7 +102,8 @@ namespace DDR_Khudmadad.Controllers
         {
             try
             {
-                _db.Add(user);
+                var u = this.TransformObject(user);
+                _db.Add(u);
                 return Ok(ResponseHandler.GetAppResponse(ResponseType.Success, user));
             }
             catch(Exception ex)
@@ -101,7 +117,8 @@ namespace DDR_Khudmadad.Controllers
         {
             try
             {
-                var _u = _db.Update(user);
+                var u = this.TransformObject(user);
+                var _u = _db.Update(u);
                 if (_u)
                     return ResponseHandler.GetAppResponse(ResponseType.Success, _u);
                 else
@@ -118,7 +135,9 @@ namespace DDR_Khudmadad.Controllers
         {
             try
             {
-                var _u = _db.Delete(user);
+                var u = this.TransformObject(user);
+                var _u = _db.Delete(u);
+
                 if (_u)
                     return ResponseHandler.GetAppResponse(ResponseType.Success, _u);
                 else
