@@ -14,14 +14,16 @@ var builder = WebApplication.CreateBuilder(args);
 //    options => options.UseNpgsql(builder.Configuration.GetConnectionString("DDR_Khudmadad"))
 //    );
 
+Console.WriteLine(builder.Configuration.GetConnectionString("Railway_Khudmadad_Db"));
+
 IDatabase db = new PostgresDb();
 
 builder.Services.AddDbContext<Ef_DataContext>( options =>
-        db.Configure(options, builder.Configuration.GetConnectionString("DDR_Khudmadad"))
+        db.Configure(options, builder.Configuration.GetConnectionString("Railway_Khudmadad_Db"))
     );
 
 //Automatically perform migration
-//builder.Services.BuildServiceProvider().GetService<Ef_DataContext>().Database.Migrate();
+builder.Services.BuildServiceProvider().GetService<Ef_DataContext>().Database.Migrate();
 
 builder.Services.AddControllers();
 
