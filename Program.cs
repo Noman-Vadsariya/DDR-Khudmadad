@@ -23,7 +23,7 @@ builder.Services.AddDbContext<Ef_DataContext>( options =>
     );
 
 //Automatically perform migration
-builder.Services.BuildServiceProvider().GetService<Ef_DataContext>().Database.Migrate();
+//builder.Services.BuildServiceProvider().GetService<Ef_DataContext>().Database.Migrate();
 
 builder.Services.AddControllers();
 
