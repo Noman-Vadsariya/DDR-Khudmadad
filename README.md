@@ -4,7 +4,12 @@ Course Project for Design, Defects and Refactoring Course involving the implemen
 <!-- We'll fill these up later, leaving now for reference -->
 
 ## Setup
+Done.
 
 ## Usage
+Too much.
 
 ## Authors
+Subhan
+Noman
+Shaheer

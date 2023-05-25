@@ -6,7 +6,7 @@ namespace DDR_Khudmadad.DAO
     public abstract class GenericDAO<T> where T : class
     {
         public Ef_DataContext _context { get; set; }
-
+        
         public GenericDAO(Ef_DataContext context)
         {
             _context = context;
