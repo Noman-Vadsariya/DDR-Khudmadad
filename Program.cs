@@ -5,17 +5,6 @@ using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-//builder.Services.AddDbContext<Ef_DataContext>(
-//    o => o.UseSqlServer(builder.Configuration.GetConnectionString("AzureSqlDb"))
-//);
-
-//builder.Services.AddDbContext<Ef_DataContext>(
-//    options => options.UseNpgsql(builder.Configuration.GetConnectionString("DDR_Khudmadad"))
-//    );
-
-Console.WriteLine(builder.Configuration.GetConnectionString("Railway_Khudmadad_Db"));
-
 IDatabase db = new PostgresDb();
 
 builder.Services.AddDbContext<Ef_DataContext>( options =>
@@ -23,7 +12,7 @@ builder.Services.AddDbContext<Ef_DataContext>( options =>
     );
 
 //Automatically perform migration
-//builder.Services.BuildServiceProvider().GetService<Ef_DataContext>().Database.Migrate();
+builder.Services.BuildServiceProvider().GetService<Ef_DataContext>().Database.Migrate();
 
 builder.Services.AddControllers();
 
