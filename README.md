@@ -4,10 +4,13 @@ Course Project for Design, Defects and Refactoring Course involving the implemen
 <!-- We'll fill these up later, leaving now for reference -->
 
 ## Setup
-Done.
+Need .Net Core WebApi
 
 ## Usage
-Too much.
+The Backend is Deployed on Railway
+
+Backend URL
+khudmadad-production.up.railway.app/
 
 ## Authors
 Subhan
